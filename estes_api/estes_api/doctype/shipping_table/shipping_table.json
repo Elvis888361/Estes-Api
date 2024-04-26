@@ -1,0 +1,79 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-26 23:10:16.302096",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "quote_number",
+  "service_level",
+  "total_price",
+  "markup",
+  "cartage_fee",
+  "total_freight"
+ ],
+ "fields": [
+  {
+   "fieldname": "quote_number",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Quote Number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "service_level",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Service Level",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_price",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "total price"
+  },
+  {
+   "fieldname": "markup",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Markup"
+  },
+  {
+   "fieldname": "cartage_fee",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Cartage fee"
+  },
+  {
+   "fieldname": "total_freight",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Total Freight"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-04-26 23:13:34.898231",
+ "modified_by": "Administrator",
+ "module": "Estes Api",
+ "name": "Shipping Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

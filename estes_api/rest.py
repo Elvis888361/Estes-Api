@@ -71,24 +71,37 @@ def get_total_prices(data):
 
     return quoted_info
 
-# Whitelist the autocomplete function
+
 @frappe.whitelist(allow_guest=True)
 def autocomplete(query):
     apis=frappe.db.get_single_value("GeoApify Address Validation", "geoapify_api_key")
-    print(f"""/n/n/n/{apis}""")
     apiUrl = f"https://api.geoapify.com/v1/geocode/autocomplete?text={query}&format=json&apiKey={apis}"
     response = requests.get(apiUrl)
-    data = response.json()
-    # print(data)
-    # for result in data['results']:
-    #     print(result['address_line1'])
-    return data
-
-@frappe.whitelist(allow_guest=True)
-def get_autocomplete(query):
-    # print(f"""/n/n/n/{query}""")
-    if query:
-        suggestions = autocomplete(query)
-        return suggestions
+    
+    if response.status_code == 200:
+        data = response.json()
+        results = data.get('results', [])
+        addresses = []
+        for result in results:
+            address = {
+                "country": result.get("country"),
+                "city": result.get("city"),
+                "state": result.get("state"),
+                "county": result.get("county"),
+                "postcode": result.get("postcode"),
+                "address_line1": result.get("address_line1"),
+                "address_line2": result.get("address_line2"),
+                "timezone": result.get("timezone", {}).get("name"),
+                "bbox": result.get("bbox", {}),
+                "plus_code": result.get("plus_code", ""),
+                "population": result.get("population", 0),
+                "result_type": result.get("result_type"),
+                "formatted": result.get("formatted"),
+                "rank": result.get("rank", {}),
+                "datasource": result.get("datasource", {})
+            }
+            addresses.append(address)
+        return addresses
     else:
-        return frappe.as_json([])
+        frappe.log_error(f"Autocomplete API request failed with status code {response.status_code}")
+        return []
