@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-26 14:16:37.180790",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "geoapify_username",
+  "geoapify_api_key"
+ ],
+ "fields": [
+  {
+   "fieldname": "geoapify_username",
+   "fieldtype": "Data",
+   "label": "Geoapify Username"
+  },
+  {
+   "fieldname": "geoapify_api_key",
+   "fieldtype": "Data",
+   "label": "Geoapify API Key"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-04-26 14:17:45.310921",
+ "modified_by": "Administrator",
+ "module": "Estes Api",
+ "name": "GeoApify Address Validation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

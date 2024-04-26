@@ -1,0 +1,52 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-26 14:42:16.111864",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "estes_user",
+  "estes_password",
+  "estes_account_number"
+ ],
+ "fields": [
+  {
+   "fieldname": "estes_user",
+   "fieldtype": "Data",
+   "label": "Estes User"
+  },
+  {
+   "fieldname": "estes_password",
+   "fieldtype": "Data",
+   "label": "Estes Password"
+  },
+  {
+   "fieldname": "estes_account_number",
+   "fieldtype": "Data",
+   "label": "Estes Account Number"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-04-26 14:43:12.149882",
+ "modified_by": "Administrator",
+ "module": "Estes Api",
+ "name": "Estes API",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

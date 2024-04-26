@@ -219,3 +219,9 @@ app_license = "mit"
 # auth_hooks = [
 #	"estes_api.auth.validate"
 # ]
+fixtures = [
+    "Client Script",
+    "Custom Field",
+    "Print Format",
+    "Property Setter"
+]

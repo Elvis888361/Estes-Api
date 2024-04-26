@@ -1,9 +1,14 @@
-from zeep import Client
-from zeep.exceptions import Fault
+# from zeep import Client
+# from zeep.exceptions import Fault
 import frappe
+from frappe import _
+import requests
 
 @frappe.whitelist(allow_guest=True)
 def get_total_prices(data):
+    estes_user=frappe.db.get_single_value("Estes API", "estes_user")
+    estes_password=frappe.db.get_single_value("Estes API", "estes_password")
+    estes_account_number=frappe.db.get_single_value("Estes API", "estes_account_number")
     wsdl_url = "https://www.estes-express.com/tools/rating/ratequote/v4.0/services/RateQuoteService?wsdl"
 
     client = Client(wsdl_url)
@@ -13,8 +18,8 @@ def get_total_prices(data):
 
         header = {
             "authentication": {
-                "user": "DynamicCor",
-                "password": "Paravent"
+                "user": estes_user,
+                "password": estes_password
             }
         }
 
@@ -65,3 +70,25 @@ def get_total_prices(data):
             return f"An error occurred while retrieving rate quotes: {e}"
 
     return quoted_info
+
+# Whitelist the autocomplete function
+@frappe.whitelist(allow_guest=True)
+def autocomplete(query):
+    apis=frappe.db.get_single_value("GeoApify Address Validation", "geoapify_api_key")
+    print(f"""/n/n/n/{apis}""")
+    apiUrl = f"https://api.geoapify.com/v1/geocode/autocomplete?text={query}&format=json&apiKey={apis}"
+    response = requests.get(apiUrl)
+    data = response.json()
+    # print(data)
+    # for result in data['results']:
+    #     print(result['address_line1'])
+    return data
+
+@frappe.whitelist(allow_guest=True)
+def get_autocomplete(query):
+    # print(f"""/n/n/n/{query}""")
+    if query:
+        suggestions = autocomplete(query)
+        return suggestions
+    else:
+        return frappe.as_json([])
