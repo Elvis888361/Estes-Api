@@ -1,5 +1,5 @@
-# from zeep import Client
-# from zeep.exceptions import Fault
+from zeep import Client
+from zeep.exceptions import Fault
 import frappe
 from frappe import _
 import requests
