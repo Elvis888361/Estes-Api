@@ -92,7 +92,7 @@ def autocomplete(query):
             address = {
                 "country": result.get("country"),
                 "city": result.get("city"),
-                "state": result.get("state"),
+                "state": result.get("state_code"),
                 "county": result.get("county"),
                 "postcode": result.get("postcode"),
                 "address_line1": result.get("address_line1"),
