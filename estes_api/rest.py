@@ -74,7 +74,13 @@ def get_total_prices(data):
 
 @frappe.whitelist(allow_guest=True)
 def autocomplete(query):
-    apis=frappe.db.get_single_value("GeoApify Address Validation", "geoapify_api_key")
+    try:
+        apis=frappe.db.get_single_value("GeoApify Address Validation", "geoapify_api_key")
+    except frappe.DoesNotExistError:
+        frappe.throw("Manufacturing Settings do not exist. Cannot continue.")
+        return
+
+    
     apiUrl = f"https://api.geoapify.com/v1/geocode/autocomplete?text={query}&format=json&apiKey={apis}"
     response = requests.get(apiUrl)
     

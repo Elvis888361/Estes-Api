@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:label",
  "creation": "2024-04-26 23:23:27.901322",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -13,7 +14,8 @@
   {
    "fieldname": "label",
    "fieldtype": "Data",
-   "label": "Label"
+   "label": "Label",
+   "unique": 1
   },
   {
    "fieldname": "column_break_jclw",
@@ -27,10 +29,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-26 23:24:09.644830",
+ "modified": "2024-04-30 15:49:43.445427",
  "modified_by": "Administrator",
  "module": "Estes Api",
  "name": "Accessorial Data",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
